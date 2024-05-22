@@ -1,0 +1,240 @@
+:root {
+    --primario: #9c27b0;
+    --primarioOscuro: #89119d;
+    --secundario: #FFCe00;
+    --secundarioOScuro: rgb(233,287,2);
+    --blanco:#fff;
+    --negro: #000;
+    --fuenteprincipal: "Staatliches", sans-serif;
+}
+
+
+
+/* Globlales */
+html { /*PAUL IRISH */
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem=10px */
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5; /*interlineado*/
+  }
+  p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+  }
+  a { /* cuando selecionas a es para referirse a todos los enlaces */
+    text-decoration: none; /* quitar la linea de abajo a todos los enlaces */
+  }
+  img {
+    width: 100%; /* se aplica paa todas las imagenes */
+  }
+  .contenedor {
+   max-width: 120rem;
+   margin: 0 auto; /* centrar el contenido*/ 
+  }
+   h1,h2,h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuenteprincipal);
+   }
+   h1{font-size: 4rem;}
+   h2 {font-size: 3.2rem;}
+   h3{font-size: 2.4rem;}
+
+   /*header*/
+   .header {
+    display: flex;
+    justify-content: center;
+   }
+   .logo{ /* para centrar el logotivo 3 es el espacio arriba y abajo y 0 a izq y der*/
+    margin: 3rem 0;
+   }
+   .footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+   }
+   .footerText {
+    font-family: var(--fuenteprincipal) ;
+    text-align: center;
+    font-size: 2.2rem;
+   }
+  
+   /*navegacion*/
+   .navegacion {
+    background-color: var(--primarioOscuro);
+    padding: 1rem  0;
+    display:flex;
+    justify-content: center;
+    /*gap: 2rem; /*va a separar cada elemeto 2rem pueden utilizar margin rigth*/
+    /* gap no tiene el soporte completo*/
+  }
+   .navegacionEnlaces {
+     font-family: var(--fuenteprincipal);
+     color: var(--blanco);
+     font-size: 3rem;
+     margin-right: 2rem;
+    }
+    .navegacionEnlaces:last-of-type /*va a selecionar el ultimo de los elementos*/
+    {
+      margin-right: 0;
+    }
+
+
+    .navegacionEnlaces--activo,
+    .navegacionEnlaces:hover /* el hover es para cuando te posicionas arribas de un de los enlaces cambnie de color */
+    {
+        color: var(--secundario);
+    }
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2 , 1fr) ;
+      column-gap: 2rem;
+      row-gap: 2rem;
+    }
+    @media (min-width: 768px ) { /* para un tamano mayor de table tendremos 3 columnaas */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3 , 1fr) ;
+      }
+    }
+    /* Prodcutos */
+    .producto {
+      background-color: var(--primarioOscuro);
+      padding: 1rem;
+    }
+    .producto__imagen {
+      width: 100%;
+    }
+    
+    .producto__nombre {
+      font-size: 4rem;
+      font-family: var(--fuenteprincipal);
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .producto__precio {
+      color: var(--secundario);
+      font-size: 2.8rem;
+      font-family: var(--fuenteprincipal);
+      margin: 1rem 0;
+      text-align: center;
+    }
+    
+    /*Graficos utilizamos esto para arreglar las imagenes grnades*/ 
+    .grafico {
+      min-height: 30rem;
+      background-repeat: no-repeat; /*para que el background no se repita*/
+      background-size: cover; /*para que la imagen se estire*/
+    }
+    .grafico--camisas{
+      grid-row: 2/3 ;
+      grid-column: 1/3;
+      background-image: url(../img/grafico1.jpg);
+    }
+    .grafico--node {
+      background-image: url(../img/grafico2.jpg);
+      grid-row: 5/6 ;
+      grid-column: -3/-1;
+     
+    }
+    @media (min-width:768 ) {
+      .grafico--node {
+        grid-row: 5/6 ;
+        grid-column: 2/4;
+      }
+    }
+    
+    /* Nosotros */
+    .nosotros {
+      display: grid;
+      grid-template-rows: repeat(2,auto); /*el auto para que tome el tamano automaticamente */
+    }
+    @media (min-width:768px) {
+      .nosotros {
+    
+        grid-template-columns: repeat(2,1fr); /* para solamente dos columnas */
+        column-gap: 2rem;
+      }
+    }
+  .nosotros__imagen {
+  grid-row: 1/2;
+  width: 100%;
+  }
+  @media (min-width:768px  ) {
+  .nosotros__imagen {
+    grid-column: 2/3;
+  }
+  } 
+
+
+  /*ICONOS*/
+  .bloques {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+  }
+ @media (min-width:768px  ) {
+  .bloques {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+  }
+ }
+ .bloque {
+    text-align: center;
+  }
+.bloque__titulo {
+  margin: 0;
+}
+
+
+/*Productos*/
+@media (min-width:768px  ) {
+  .camisa {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 2rem;
+  }
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+
+}
+.formulario__campo {
+  /*border-color: var(--primarioOscuro); *//* esto es lo mismo */
+  /*border-width: 1rem; */                  /*que la */
+  /*border-style: solid; */               /*ultima linea */
+  border : 1rem solid var(--primarioOscuro);
+  background-color: var(--primario);
+  color : var(--blanco) ;/*color para el texto de adentro*/
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  appearance: none; /*quitar la flecha del select*/
+  
+}
+.formulario__submit {
+  background-color: var(--secundario);
+  border: none; /*todos los input tienen un border si se quiere se debe quitar*/
+  font-size: 2rem; /* cuando se modifica un submit se pierde la manito de senalar*/
+  font-family: var(--fuenteprincipal);
+  padding: 2rem;
+  transition: background-color .3s ease; /*para cambiar el color se hace una transiciom dura 0.3 en cambiarse*/
+ /* transition: font-size .3s ease; */
+ grid-column: 1 / 3;
+}
+.formulario__submit:hover { /*para volver a poner la manito*/
+  cursor: pointer;
+  background-color: var(--secundarioOScuro);
+  
+}
